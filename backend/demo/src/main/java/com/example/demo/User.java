@@ -2,6 +2,8 @@ package com.example.demo;
 
 import jakarta.persistence.*;
 
+// Represents all of the user data that will be stored in the database
+
 @Entity
 @Table(name = "users")
 public class User {
