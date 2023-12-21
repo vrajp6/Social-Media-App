@@ -19,4 +19,12 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
+    public boolean authenticateUser(String username, String password) {
+        User user = userRepository.findByUsername(username);
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+            // Logic to generate and return a token (e.g., JWT) can be added here
+            return true;
+        }
+        return false;
+    }
 }

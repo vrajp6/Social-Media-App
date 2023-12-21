@@ -22,7 +22,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/api/users/register", "/h2-console/**").permitAll()
+                .requestMatchers("/api/users/register", "/h2-console/**", "/api/users/login").permitAll()
                 .anyRequest().authenticated())
             .headers(headers -> headers
                 .frameOptions(frameOptions -> frameOptions.sameOrigin())); // Customizer approach
